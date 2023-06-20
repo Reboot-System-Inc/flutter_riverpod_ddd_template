@@ -73,7 +73,7 @@ jobs:
       - name: Copy folder base
         run: |
           git clone https://github.com/iamthejahid/TopModalSheet temp_repo
-          cp -r temp_repo/lib/
+          cp -r temp_repo/lib/ .
           rm -rf temp_repo
 
 
