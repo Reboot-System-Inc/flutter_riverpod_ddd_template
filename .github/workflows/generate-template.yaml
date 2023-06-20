@@ -5,7 +5,7 @@ on: [push]
 permissions:
   contents: write
 
-# if condition must be changed to github.repository != 'solid-software/flutter_project_template'
+# if condition must be changed to github.repository != 'Reboot-System-Inc/flutter_riverpod_ddd_template'
 
 jobs:
   create-project:
@@ -62,12 +62,17 @@ jobs:
             --org="$organization" \
             --project-name="${repo_name}"
           
-          flutter pub add --dev solid_lints
+          flutter pub add hooks_riverpod
+          flutter pub add equatable
+          flutter pub add hive
+          flutter pub add hive_flutter
+          flutter pub add go_router
+          flutter pub add google_fonts
+          flutter pub add flutter_screenutil
+          flutter pub add gap
           flutter pub get
 
-      - name: Self-destruct
-        run: |
-          rm .github/workflows/generate-template.yaml
+
 
 
       - name: Copy folder base
@@ -76,6 +81,9 @@ jobs:
           cp -r temp_repo/lib/ .
           rm -rf temp_repo
 
+      - name: Self-destruct
+        run: |
+          rm .github/workflows/generate-template.yaml
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
