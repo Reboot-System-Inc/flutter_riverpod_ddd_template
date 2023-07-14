@@ -67,7 +67,7 @@ jobs:
           pwd
           cd ../
           pwd
-          cp -r temp/ .
+          cp -r temp/. .
           rm -rf temp
           
           
