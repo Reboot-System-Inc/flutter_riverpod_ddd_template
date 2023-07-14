@@ -53,17 +53,20 @@ jobs:
   
       - name: Create the project
         run: |
-          # organization="${{ env.REPO_ORGANIZATION }}.${{ env.REPOSITORY_NAME }}"
           organization="reboot.${{ env.REPOSITORY_NAME }}"
           repo_name="${{ env.REPOSITORY_NAME }}"
 
           echo "Creating the project with org ${organization} name ${repo_name}"
           
           dart pub global activate very_good_cli
-          
-          cd ../
-              
+        
+          mkdir temp
+          cd temp
+          cd temp            
           very_good create flutter_app "${repo_name}" --org "$organization"
+          cd ../
+          cp -r temp/ .
+          rm -rf temp
           
           
           
