@@ -90,8 +90,11 @@ jobs:
         run: |
           rm .github/workflows/generate-template.yaml
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Commit and Push Changes
+        uses: EndBug/add-and-commit@v7
         with:
-          commit_message: "Ready to clone and code."
-          # commit_options: '--amend --no-edit'
-          push_options: --force
+          message: "Ready to clone and code."
+          files: |
+            ./*
+            !.github/workflows/main.yaml
+
