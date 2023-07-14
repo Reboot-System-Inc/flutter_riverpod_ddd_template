@@ -58,9 +58,11 @@ jobs:
 
           echo "Creating the project with org ${organization} name ${repo_name}"
           
-          flutter create . \
-            --org="$organization" \
-            --project-name="${repo_name}"
+          dart pub global activate very_good_cli
+          
+          very_good create --org-name "$organization" "${repo_name}"
+          
+
           
           flutter pub add hooks_riverpod
           flutter pub add equatable
