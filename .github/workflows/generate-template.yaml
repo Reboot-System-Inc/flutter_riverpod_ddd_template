@@ -69,6 +69,8 @@ jobs:
           pwd
           cp -r temp/. .
           rm -rf temp
+          ls
+          
           
           
           
