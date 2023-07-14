@@ -61,9 +61,12 @@ jobs:
           dart pub global activate very_good_cli
         
           mkdir temp
-          cd temp          
+          cd temp
+          pwd
           very_good create flutter_app "${repo_name}" --org "$organization"
+          pwd
           cd ../
+          pwd
           cp -r temp/ .
           rm -rf temp
           
