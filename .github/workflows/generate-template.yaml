@@ -53,36 +53,14 @@ jobs:
   
       - name: Create the project
         run: |
-          organization="reboot.${{ env.REPOSITORY_NAME }}"
+          organization="${{ env.REPO_ORGANIZATION }}.${{ env.REPOSITORY_NAME }}"
           repo_name="${{ env.REPOSITORY_NAME }}"
 
           echo "Creating the project with org ${organization} name ${repo_name}"
           
-          dart pub global activate very_good_cli
-        
-          mkdir temp
-          cd temp
-          echo "1 pwd"
-          pwd
-          very_good create flutter_app "${repo_name}" --org "$organization"
-          echo "2 pwd"
-          pwd
-          echo "1 ls"
-          ls
-          cd ../
-          echo "3 pwd"
-          pwd
-          echo "2 ls"
-          ls
-          cp -r temp/. .
-          rm -rf temp
-          echo "3 ls"
-          ls
-          
-          
-          
-          
-
+          flutter create . \
+            --org="$organization" \
+            --project-name="${repo_name}"
           
           flutter pub add hooks_riverpod
           flutter pub add equatable
