@@ -62,13 +62,21 @@ jobs:
         
           mkdir temp
           cd temp
+          echo "1 pwd"
           pwd
           very_good create flutter_app "${repo_name}" --org "$organization"
+          echo "2 pwd"
           pwd
+          echo "1 ls"
+          ls
           cd ../
+          echo "3 pwd"
           pwd
+          echo "2 ls"
+          ls
           cp -r temp/. .
           rm -rf temp
+          echo "3 ls"
           ls
           
           
