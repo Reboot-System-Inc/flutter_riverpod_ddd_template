@@ -60,6 +60,8 @@ jobs:
           echo "Creating the project with org ${organization} name ${repo_name}"
           
           dart pub global activate very_good_cli
+          
+          cd ../
               
           very_good create flutter_app "${repo_name}" --org "$organization"
           
