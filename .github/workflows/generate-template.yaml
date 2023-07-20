@@ -63,22 +63,6 @@ jobs:
           cp -r "${repo_name}"/. .
           rm -rf "${repo_name}"
           
-          
-          
-
-          
-          flutter pub add hooks_riverpod
-          flutter pub add equatable
-          flutter pub add hive
-          flutter pub add hive_flutter
-          flutter pub add go_router
-          flutter pub add google_fonts
-          flutter pub add flutter_screenutil
-          flutter pub add gap
-          flutter pub get
-
-
-
 
       - name: Copy folder base
         run: |
@@ -88,10 +72,10 @@ jobs:
 
       - name: Self-destruct
         run: |
-          rm .github/workflows/generate-template.yaml
+          rm -rf .github
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Ready to clone and code."
-          file_pattern: ':(exclude).github/**'
+          # file_pattern: ':(exclude).github/**'
           push_options: --force
