@@ -57,18 +57,47 @@ jobs:
           repo_name="${{ env.REPOSITORY_NAME }}"
 
           echo "Creating the project with org ${organization} name ${repo_name}"
-          
+
           dart pub global activate very_good_cli
           very_good create flutter_app "${repo_name}" --org "$organization"
           cp -r "${repo_name}"/. .
           rm -rf "${repo_name}"
+
+          flutter pub add flutter_easylogger
+          flutter pub add hooks_riverpod
+          flutter pub add app_version_update
+          flutter pub add bot_toast
+          flutter pub add cached_network_image
+          flutter pub add equatable
+          flutter pub add fast_immutable_collections
+          flutter pub add flex_color_scheme
+          flutter pub add flutter_screenutil
+          flutter pub add flutter_svg
+          flutter pub add font_awesome_flutter
+          flutter pub add form_validator
+          flutter pub add fpdart
+          flutter pub add google_fonts
+          flutter pub add hive_flutter
+          flutter pub add hive_flutter
+          flutter pub add gap
+          flutter pub add go_router
+          flutter pub add http
+          flutter pub add icons_plus
+          flutter pub add image_picker
+          flutter pub add intl
+          flutter pub add pinput
+          flutter pub add timeago
+          flutter pub remove very_good_analysis
+          
+
           
 
       - name: Copy folder base
         run: |
-          git clone https://github.com/iamthejahid/TopModalSheet temp_repo
+          git clone https://github.com/Reboot-System-Inc/demo temp_repo
           cp -r temp_repo/lib/ .
           rm -rf temp_repo
+          
 
       - name: Self-destruct
         run: |
